@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <!-- Inifite carousels -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/grab-n-drag-infinite-carousel@latest/dist/grab-n-drag-infinite-carousel.min.css">
 </head>
 <body>
 
@@ -49,7 +51,7 @@
     </nav>
     <div class="bar-actions">
       <a href="#" class="login">Connexion</a>
-      <a href="#tarifs" class="btn btn-primary btn-sm">Essayer gratuitement</a>
+      <a href="#tarifs" class="btn btn-primary btn-sm nav-cta">Essayer gratuitement</a>
       <button class="menu-btn" id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
     </div>
   </div>
@@ -70,7 +72,7 @@
 
     <div class="frame hero-video" id="demo">
       <video controls autoplay preload="none" poster="/assets/images/placeholder.webp">
-        <source src="/assets/videos/demo.mp4" type="video/mp4">
+        <source src="/assets/videos/placeholder.mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -91,13 +93,18 @@
     </ul>
   </div>
   <div class="marquee" aria-label="Quelques créateurs qui nous font confiance">
+    <div class="infinite-scroll-wrapper">
+      <div class="infinite-scroll-container" id="hero-logo-carousel">
+        <div class="infinite-scroll-item"><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 1</div>
+      <div class="infinite-scroll-item"><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 2</div>
+        <div class="infinite-scroll-item"><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 3</div>
+        <div class="infinite-scroll-item"><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 4</div>
+        <div class="infinite-scroll-item"><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 5</div>
+        <div class="infinite-scroll-item"><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 6</div>
+      </div>
+    </div>
     <ul class="track" id="track">
-      <li><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 1</li>
-      <li><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 2</li>
-      <li><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 3</li>
-      <li><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 4</li>
-      <li><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 5</li>
-      <li><img src="/assets/images/placeholder.webp" alt="" width="28" height="28">Créateur 6</li>
+
     </ul>
   </div>
 </section>
@@ -150,7 +157,7 @@
     </div>
     <div class="frame">
       <video controls preload="none" poster="/assets/images/placeholder.webp">
-        <source src="/assets/videos/editeur.mp4" type="video/mp4">
+        <source src="/assets/videos/placeholder.mp4" type="video/mp4">
       </video>
     </div>
   </div>
@@ -359,6 +366,9 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+
+<!-- Infinite carousels -->
+ <script src="https://cdn.jsdelivr.net/npm/grab-n-drag-infinite-carousel@latest/dist/grab-n-drag-infinite-carousel.min.js"></script>
+ <script src="script.js"></script>
 </body>
 </html>

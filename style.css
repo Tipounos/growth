@@ -3,11 +3,11 @@
    ========================================================= */
 :root {
   /* Palette */
-  --bg: hsl(0, 0%, 0%);
-  --text: hsl(0, 0%, 90%);
-  --hero-bg: #0d2422;
+  --bg: hsl(213, 53%, 10%);
+  --text: hsl(0, 0%, 85%);
+  --hero-bg: linear-gradient(-185deg, #0f1024, #113b4e);
 
-  --electric-sapphire: rgb(206, 70, 82); /* accents dans le texte */
+  --electric-sapphire: rgb(255, 73, 73); /* accents dans le texte */
   --brown-red: #6572ffff; /* boutons CTA */
   --pale-amber: #dddf70ff; /* abonnement 1 (le moins cher) */
   --turquoise: #3bdac2ff; /* abonnement 2 */
@@ -27,6 +27,18 @@
   --margin: 4rem;
 }
 
+@font-face {
+  font-family: 'Nippo';
+  src: url(assets/fonts/Nippo-Variable.woff2),
+       url(assets/fonts/Nippo-Variable.woff2);
+}
+
+@font-face {
+  font-family: 'Chillax';
+  src: url(assets/fonts/Chillax-Variable.woff2),
+       url(assets/fonts/Chillax-Variable.woff);
+}
+
 /* =========================================================
    2. BASE & SVGs
    ========================================================= */
@@ -35,6 +47,7 @@
 *::after {
   box-sizing: border-box;
   margin: 0;
+  font-family: 'Chillax';
 }
 html {
   scroll-behavior: smooth;
@@ -80,6 +93,8 @@ h3 {
   line-height: 1.1;
   letter-spacing: -0.02em;
   text-wrap: balance;
+  font-family: Nippo, sans-serif;
+  font-weight: 100;
 }
 h1 {
   font-size: clamp(2.3rem, 6vw, 4.4rem);
@@ -94,9 +109,14 @@ h3 {
   font-weight: 600;
   letter-spacing: 0;
 }
+span {
+  font-family: Nippo, sans-serif;
+
+}
 
 .accent {
   color: var(--electric-sapphire);
+  /* text-shadow: 0px 0px 14px var(--electric-sapphire); */
 }
 .muted {
   color: var(--muted);
@@ -251,6 +271,8 @@ h3 {
   padding-bottom: var(--section-gap);
   overflow: hidden;
   background: var(--hero-bg);
+  min-height: 90vh;
+  display: flex;
 }
 .hero::before {
   content: "";
@@ -346,33 +368,14 @@ p.lead {
     transparent
   );
 }
-.track {
-  display: flex;
-  gap: 1rem;
-  width: max-content;
-  animation: scroll 35s linear infinite;
-}
-.track li {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.5rem 1rem 0.5rem 0.5rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  color: var(--muted);
-  font-size: 0.9rem;
-  white-space: nowrap;
-}
-.track img {
-  border-radius: 50%;
-  width: 28px;
-  height: 28px;
-  object-fit: cover;
-}
-@keyframes scroll {
-  to {
-    transform: translateX(-50%);
-  }
+#hero-logo-carousel .infinite-scroll-item {
+    padding: 15px 30px;
+    margin-right: 20px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+    white-space: nowrap;
 }
 
 /* =========================================================
@@ -630,6 +633,16 @@ details p {
   }
 }
 @media (max-width: 760px) {
+  .hero-container {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1.5rem;
+    text-align: center;
+  }
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
   .login {
     display: none;
   }
@@ -658,6 +671,12 @@ details p {
   }
   .site-header.open .nav {
     display: flex;
+  }
+}
+
+@media (max-width: 540px) {
+  .nav-cta {
+    display: none;
   }
 }
 

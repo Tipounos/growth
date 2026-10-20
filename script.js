@@ -15,9 +15,11 @@ document.querySelectorAll('.nav a').forEach((link) =>
   })
 );
 
-// Duplique la liste de créateurs pour un défilement infini sans coupure
-const track = document.getElementById('track');
-track.insertAdjacentHTML('beforeend', track.innerHTML);
+
+// Carousel infini
+const heroLogoCarousel = new InfiniteScrollCarousel('#hero-logo-carousel', {
+  speed: 50
+});
 
 // Année du footer
 document.getElementById('year').textContent = new Date().getFullYear();
