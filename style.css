@@ -13,6 +13,9 @@
   --turquoise: #3bdac2ff; /* abonnement 2 */
   --amethyst: #995db1ff; /* abonnement 3 (le plus cher) */
 
+  --success: #00b30c;
+  --fail: #c9001e;
+
   /* Dérivées */
   --muted: hsl(0, 0%, 62%);
   --card: hsl(0, 0%, 7%);
@@ -126,6 +129,9 @@ span {
   font-size: 1.1rem;
   max-width: 52ch;
 }
+.underline {
+  text-decoration: underline;
+}
 
 .section-head {
   max-width: 680px;
@@ -168,6 +174,40 @@ span {
 
 .custom-shape-divider-bottom-1792428262 .shape-fill {
     fill: var(--bg);
+}
+
+@view-transition  {
+  navigation: auto;
+}
+
+/* Animation de sortie */
+::view-transition-old(root) {
+  animation: fade-out 0.2s ease-in both;
+}
+
+/* Animation d'entrée */
+::view-transition-new(root) {
+  animation: fade-in 0.35s ease-out both;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* =========================================================
@@ -247,7 +287,7 @@ span {
   align-items: center;
   gap: 1rem;
 }
-.login {
+.login-btn {
   color: var(--muted);
   font-size: 0.95rem;
 }
@@ -643,7 +683,7 @@ details p {
     flex-direction: column;
     align-items: stretch;
   }
-  .login {
+  .login-btn {
     display: none;
   }
   .menu-btn {
@@ -994,4 +1034,160 @@ details[open] p {
     transform: none;
     filter: none;
   }
+}
+
+
+/* =========== REGISTER PAGE =========== */
+
+.register-main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-image: radial-gradient(
+    circle,
+    #585858 1px,
+    transparent 1px
+  );
+  background-size: 36px 36px;
+}
+
+.register-page {
+  min-width: 400px;
+  width: 80vw;
+  max-width: 750px;
+  margin-bottom: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(9px);
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  padding: 64px;
+  text-align: center;
+}
+
+.register-page h1 {
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 24px;
+}
+
+.register-form label {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-form input {
+  height: 2.8rem;
+  padding-left: .6rem;
+  border-radius: var(--radius);
+  border: 0;
+  background: var(--text);
+}
+
+.line-divider {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  margin: 16px 0;
+}
+
+.line-divider::before {
+  content: "";
+  position: absolute;
+  background: var(--text);
+  height: 2px;
+  width: 45%;
+  left: 0;
+  bottom: 50%;
+  translate: 0 50%;
+}
+
+.line-divider::after {
+  content: "";
+  position: absolute;
+  background: var(--text);
+  height: 2px;
+  width: 45%;
+  right: 0;
+  bottom: 50%;
+  translate: 0 50%;
+}
+
+.register-page .btn {
+  width: 100%;
+}
+
+.google-btn:hover {
+  background: #000;
+  color: var(--text);
+}
+
+.criteria li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.criteria li:has(.dot.red) {
+  color: var(--muted);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 16px;
+}
+
+.dot.green {
+  background-color: var(--success);
+}
+
+.dot.red {
+  background-color: var(--fail);
+}
+
+.register-politique {
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+.shapes svg {
+  width: 128px;
+  height: 128px;
+  position: absolute;
+}
+
+.shapes {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.register-sunflower {
+  left: 17vw;
+  transform: rotate(20deg);
+}
+
+.register-diamond {
+  bottom: 14vh;
+  right: 16vw;
+}
+
+.register-moon {
+  top: 23vh;
+  right: 19vw;
+}
+
+a:hover {
+  filter: brightness(120%);
 }

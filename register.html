@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Register</title>
+</head>
+<body>
+
+    <main class="register-main">
+        <div class="shapes">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 330" class="register-sunflower">
+                <path
+                    fill="#5BDCEA"
+                    fill-rule="evenodd"
+                    d="M70 12H290Q305 12 315 27L350 87Q359 102 349 116L211 300Q198 318 180 318Q162 318 149 300L11 116Q1 102 10 87L45 27Q55 12 70 12Z
+                    M180 39L130 100Q125 107 135 107H225Q235 107 230 100Z
+                    M38 115H99Q105 115 108 124L137 222Q140 232 133 224Z
+                    M322 115H261Q255 115 252 124L223 222Q220 232 227 224Z"
+                />
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" class="register-moon">
+                <path fill="#C084F5" stroke="#C084F5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M90 8A82 82 0 1 0 172 112A62 62 0 0 1 90 8Z"/>
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" class="register-diamond">
+                <g fill="#FFD27A">
+                    <ellipse cx="60" cy="34" rx="9" ry="19"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(45 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(90 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(135 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(180 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(225 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(270 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(315 60 60)"/>
+                </g>
+                <circle cx="60" cy="60" r="13" fill="#F5B94E"/>
+            </svg>
+        </div>
+        <div class="register-page">
+
+
+
+            <h1>Créer un compte</h1>
+            
+            <p>Vous possédez déjà un compte ? <a class="register-login-btn underline" href="login.html">Se connecter</a></p>
+            <form class="register-form" id="register-form">
+                <label for="register-email">
+                    Adresse e-mail
+                    <input type="email" name="username" id="register-email" placeholder="E-mail">
+                </label>
+                <label for="register-password">
+                    Mot de passe
+                    <input type="password" name="register-password" id="register-password" placeholder="Mot de passe">
+                </label>
+                <label for="register-confirm">
+                    Confirmer le mot de passe
+                    <input type="password" name="register-confirm" id="register-confirm" placeholder="Confirmer le mot de passe">
+                </label>
+                <ul class="criteria">
+                    <li class="password-length">
+                        <div class="dot red"></div>Utiliser au moins 10 caractères
+                    </li>
+                    <li class="password-number">
+                        <div class="dot red"></div>Utiliser au moins un nombre
+                    </li>
+                    <li class="same-passwords">
+                        <div class="dot red"></div>Les deux mots de passe correspondent
+                    </li>
+                </ul>
+                
+                <button type="submit" class="btn btn-primary">Continuer</button>
+                
+            </form>
+            <div class="line-divider">OU</div>
+            <button id="google-login" class="btn google-btn">Continuer avec Google</button>
+        </div>
+        <p class="register-politique">En créant un compte, vous acceptez <a href="confidentialite.html" class="underline">notre politique de confidentialité</a>.</p>
+    </main>
+    <script type="module" src="firebase.js"></script>
+</body>
+</html>
