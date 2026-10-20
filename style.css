@@ -3,7 +3,7 @@
    ========================================================= */
 :root {
   /* Palette */
-  --bg: hsl(213, 42%, 9%);
+  --bg: #0d1621;
   --text: hsl(0, 0%, 85%);
   --hero-bg: linear-gradient(-185deg, #1a1b38, #0d1f29);
 
@@ -179,7 +179,7 @@ span {
   justify-content: center;
   padding: 0.8rem 1.5rem;
   border: 1px solid transparent;
-  border-radius: 999px;
+  border-radius: 16px;
   font: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -686,5 +686,312 @@ details p {
   }
   .track {
     animation: none;
+  }
+}
+
+/* =========================================================
+   14. ANIMATIONS & MICRO-INTERACTIONS
+   Les animations restent regroupées ici pour faciliter leur réglage.
+   ========================================================= */
+
+:root {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ---------- Barre de progression du scroll ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  z-index: 100;
+  transform-origin: 0 50%;
+  transform: scaleX(var(--p, 0));
+  background: linear-gradient(90deg, var(--electric-sapphire), var(--amethyst));
+  pointer-events: none;
+}
+
+/* ---------- Header & navigation ---------- */
+.site-header {
+  transition: box-shadow 0.3s, background 0.3s;
+}
+.site-header.scrolled {
+  background: hsl(0 0% 0% / 0.9);
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.7);
+}
+.logo svg {
+  transition: transform 0.4s var(--ease);
+}
+.logo svg path {
+  stroke-dasharray: 110;
+  animation: draw 1.2s var(--ease) 0.2s both;
+}
+.logo:hover svg {
+  transform: rotate(-8deg) scale(1.12);
+}
+@keyframes draw {
+  from { stroke-dashoffset: 110; }
+  to   { stroke-dashoffset: 0; }
+}
+.nav a {
+  position: relative;
+  transition: color 0.2s;
+}
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: var(--electric-sapphire);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s var(--ease);
+}
+.nav a:hover::after,
+.nav a.active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav a.active {
+  color: var(--text);
+}
+
+/* ---------- Hero : entrée, flottement et effets ---------- */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+@keyframes gridDrift {
+  to { background-position: 48px 48px, 48px 48px; }
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--brown-red) 60%, transparent); }
+  70%  { box-shadow: 0 0 0 16px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.hero-content > * {
+  animation: rise 0.9s var(--ease) both;
+}
+.hero-content > :nth-child(2) { animation-delay: 0.12s; }
+.hero-content > :nth-child(3) { animation-delay: 0.24s; }
+.hero-video {
+  animation: rise 1s var(--ease) 0.35s both, float 7s ease-in-out 1.4s infinite;
+}
+.hero::before {
+  animation: gridDrift 24s linear infinite;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    120px circle at var(--mx, 70%) var(--my, 30%),
+    var(--electric-sapphire),
+    transparent 20%
+  );
+  filter: blur(40px);
+}
+h1 .accent,
+h2 .accent {
+  background: linear-gradient(90deg, var(--electric-sapphire), #ffd9a3, var(--electric-sapphire));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: shimmer 5s linear infinite;
+}
+
+/* ---------- Boutons ---------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    filter 0.2s,
+    background 0.2s,
+    translate 0.25s var(--ease),
+    transform 0.2s,
+    box-shadow 0.3s;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(110deg, transparent 30%, rgba(255, 255, 255, 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.7s var(--ease);
+}
+.btn:hover::after {
+  transform: translateX(120%);
+}
+.btn:active {
+  transform: scale(0.96);
+}
+.btn-primary:hover {
+  translate: 0 -3px;
+  box-shadow: 0 12px 28px -10px var(--brown-red);
+}
+.hero-cta .btn-primary {
+  animation: pulse 2.8s infinite;
+}
+.hero-cta .btn-primary:hover {
+  animation: none;
+}
+
+/* ---------- Défilement de logos ---------- */
+#hero-logo-carousel .infinite-scroll-item {
+  transition: transform 0.3s var(--ease);
+}
+#hero-logo-carousel .infinite-scroll-item:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- Apparition au scroll (classes ajoutées par le JS) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(4px);
+  transition: opacity 0.8s var(--ease), transform 0.8s var(--ease), filter 0.8s var(--ease);
+  transition-delay: var(--d, 0ms);
+}
+.reveal[data-reveal="zoom"] { transform: scale(0.94); }
+.reveal[data-reveal="fade"] { transform: none; }
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+/* ---------- Cartes & liens du footer ---------- */
+.card > img {
+  transition: transform 0.8s var(--ease);
+}
+.card {
+  transition: transform 0.4s var(--ease), border-color 0.3s, box-shadow 0.4s;
+}
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-8px);
+    border-color: color-mix(in srgb, var(--electric-sapphire) 55%, transparent);
+    box-shadow: 0 24px 40px -22px color-mix(in srgb, var(--electric-sapphire) 60%, transparent);
+  }
+  .card:hover > img {
+    transform: scale(1.06);
+  }
+  .foot-grid nav a:hover {
+    translate: 4px 0;
+  }
+}
+.foot-grid nav a {
+  transition: color 0.2s, translate 0.25s var(--ease);
+}
+
+/* ---------- Étapes & étoiles ---------- */
+@keyframes ring {
+  0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--electric-sapphire) 55%, transparent); }
+  70%  { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+.step-n {
+  animation: ring 2.4s infinite;
+}
+@keyframes twinkle {
+  0%, 100% { transform: scale(1); filter: brightness(1); }
+  50%      { transform: scale(1.3); filter: brightness(1.5); }
+}
+.star {
+  display: inline-block;
+  animation: twinkle 2.4s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.25s);
+}
+
+/* ---------- Tarifs ---------- */
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 40px -25px var(--plan); }
+  50%      { box-shadow: 0 0 90px -20px var(--plan); }
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+.plan {
+  transition: transform 0.4s var(--ease), box-shadow 0.4s;
+}
+.plan:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 60px -20px var(--plan);
+}
+.plan.featured {
+  animation: glow 3.5s ease-in-out infinite;
+}
+.plan-tag {
+  animation: bob 2s ease-in-out infinite;
+}
+
+/* ---------- CTA final : halo animé ---------- */
+@keyframes drift {
+  to { transform: translate(140%, 40%) scale(1.25); }
+}
+.cta-box {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.cta-box::before {
+  content: "";
+  position: absolute;
+  top: -140px;
+  left: -120px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--brown-red) 40%, transparent), transparent 65%);
+  filter: blur(30px);
+  z-index: -1;
+  animation: drift 14s ease-in-out infinite alternate;
+}
+
+/* ---------- FAQ ---------- */
+@keyframes faqIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+summary {
+  transition: color 0.2s;
+}
+summary:hover {
+  color: var(--electric-sapphire);
+}
+details[open] p {
+  animation: faqIn 0.4s var(--ease);
+}
+
+/* ---------- Accessibilité : respecter la réduction des animations ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
