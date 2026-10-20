@@ -3,11 +3,11 @@
    ========================================================= */
 :root {
   /* Palette */
-  --bg: hsl(213, 53%, 10%);
+  --bg: hsl(213, 42%, 9%);
   --text: hsl(0, 0%, 85%);
-  --hero-bg: linear-gradient(-185deg, #0f1024, #113b4e);
+  --hero-bg: linear-gradient(-185deg, #1a1b38, #0d1f29);
 
-  --electric-sapphire: rgb(255, 73, 73); /* accents dans le texte */
+  --electric-sapphire: rgb(255, 157, 46); /* accents dans le texte */
   --brown-red: #6572ffff; /* boutons CTA */
   --pale-amber: #dddf70ff; /* abonnement 1 (le moins cher) */
   --turquoise: #3bdac2ff; /* abonnement 2 */
@@ -282,7 +282,7 @@ span {
   background:
     linear-gradient(var(--grid) 1px, transparent 1px) 0 0 / 48px 48px,
     linear-gradient(90deg, var(--grid) 1px, transparent 1px) 0 0 / 48px 48px;
-  mask-image: linear-gradient(#000, transparent 80%);
+  mask-image: linear-gradient(#000, #0000002c 80%);
 }
 .hero-container {
   display: grid;
