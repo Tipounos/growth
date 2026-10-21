@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Se connecter</title>
+</head>
+<body>
+    <!-- ============ HEADER ============ -->
+    <header class="site-header" id="top">
+    <div class="container bar">
+        <a href="index.html#top" class="logo">
+
+
+
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 120 120"
+                fill="none"
+                role="img"
+                aria-label="Logo"
+                width="4rem"
+                height="4rem">
+
+            <g stroke="currentColor"
+                stroke-width="13"
+                stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 91 L43 71 L59 81 L91 48"/>
+                <path d="M70 47 L94 44 L91 68"/>
+            </g>
+
+            </svg>
+
+
+
+            Growth
+        </a>
+        <nav class="nav" id="nav" aria-label="Navigation principale">
+        <a href="#catalogue">Catalogue</a>
+        <a href="#fonctionnement">Fonctionnement</a>
+        <a href="#tarifs">Tarifs</a>
+        <a href="#faq">FAQ</a>
+        </nav>
+        <div class="bar-actions">
+            <a href="login.html" class="btn btn-ghost login-btn nav-cta logged-out">Connexion</a>
+            <a href="register.html" class="btn btn-primary btn-sm nav-cta logged-out">Essayer gratuitement</a>
+            <a href="space.html" class="btn btn-primary nav-cta">Accéder à mon espace</a>
+            <button class="menu-btn" id="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+        </div>
+    </div>
+    </header>
+
+    <main class="login-main">
+        <div class="shapes">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 330" class="login-sunflower">
+                <path
+                    fill="#5BDCEA"
+                    fill-rule="evenodd"
+                    d="M70 12H290Q305 12 315 27L350 87Q359 102 349 116L211 300Q198 318 180 318Q162 318 149 300L11 116Q1 102 10 87L45 27Q55 12 70 12Z
+                    M180 39L130 100Q125 107 135 107H225Q235 107 230 100Z
+                    M38 115H99Q105 115 108 124L137 222Q140 232 133 224Z
+                    M322 115H261Q255 115 252 124L223 222Q220 232 227 224Z"
+                />
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" class="login-moon">
+                <path fill="#C084F5" stroke="#C084F5" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" d="M90 8A82 82 0 1 0 172 112A62 62 0 0 1 90 8Z"/>
+            </svg>
+
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" class="login-diamond">
+                <g fill="#FFD27A">
+                    <ellipse cx="60" cy="34" rx="9" ry="19"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(45 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(90 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(135 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(180 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(225 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(270 60 60)"/>
+                    <ellipse cx="60" cy="34" rx="9" ry="19" transform="rotate(315 60 60)"/>
+                </g>
+                <circle cx="60" cy="60" r="13" fill="#F5B94E"/>
+            </svg>
+        </div>
+        <div class="login-page">
+
+
+
+            <h1>Se connecter</h1>
+            
+            <p>Pas encore de compte ? <a class="login-register-btn underline" href="login.html">Créez-en un</a></p>
+            <form class="login-form" id="login-form">
+                <label for="login-email">
+                    Adresse e-mail
+                    <input type="email" name="username" id="login-email" placeholder="E-mail">
+                </label>
+                <label for="login-password">
+                    Mot de passe
+                    <input type="password" name="register-password" id="login-password" placeholder="Mot de passe">
+                </label>
+                
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+                
+            </form>
+            <div class="line-divider">OU</div>
+            <button id="google-login" class="btn google-btn">Continuer avec Google</button>
+                    <p class="login-politique">En vous connectant, vous acceptez <a href="confidentialite.html" class="underline">notre politique de confidentialité</a>.</p>
+        </div>
+
+    </main>
+    <!-- Popups -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="firebase.js"></script>
+    <script type="module" src="login.js"></script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>

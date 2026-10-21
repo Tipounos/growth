@@ -176,10 +176,6 @@ span {
     fill: var(--bg);
 }
 
-@view-transition  {
-  navigation: auto;
-}
-
 /* Animation de sortie */
 ::view-transition-old(root) {
   animation: fade-out 0.2s ease-in both;
@@ -253,6 +249,7 @@ span {
    ========================================================= */
 .site-header {
   position: sticky;
+  width: 100%;
   top: 0;
   z-index: 50;
   background: hsl(0 0% 0% / 0.75);
@@ -298,6 +295,10 @@ span {
   color: var(--text);
   font-size: 1.5rem;
   cursor: pointer;
+}
+
+.bar-actions.logged-in > .logged-out {
+  display: none;
 }
 
 /* =========================================================
@@ -1039,7 +1040,8 @@ details[open] p {
 
 /* =========== REGISTER PAGE =========== */
 
-.register-main {
+.register-main,
+.login-main {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -1054,7 +1056,8 @@ details[open] p {
   background-size: 36px 36px;
 }
 
-.register-page {
+.register-page,
+.login-page {
   min-width: 400px;
   width: 80vw;
   max-width: 750px;
@@ -1067,24 +1070,28 @@ details[open] p {
   text-align: center;
 }
 
-.register-page h1 {
+.register-page h1,
+.login-page h1 {
   margin-bottom: 24px;
   color: var(--text);
 }
 
-.register-form {
+.register-form,
+.login-form {
   display: flex;
   flex-direction: column;
   text-align: left;
   gap: 24px;
 }
 
-.register-form label {
+.register-form label,
+.login-form label {
   display: flex;
   flex-direction: column;
 }
 
-.register-form input {
+.register-form input,
+.login-form input {
   height: 2.8rem;
   padding-left: .6rem;
   border-radius: var(--radius);
@@ -1121,7 +1128,8 @@ details[open] p {
   translate: 0 50%;
 }
 
-.register-page .btn {
+.register-page .btn,
+.login-page .btn {
   width: 100%;
 }
 
@@ -1155,9 +1163,13 @@ details[open] p {
   background-color: var(--fail);
 }
 
-.register-politique {
-  font-weight: 400;
-  font-size: 1.1rem;
+.register-politique,
+.login-politique {
+  font-weight: 700;
+  font-size: 1rem;
+  position: absolute;
+  bottom: .4rem;
+  font-family: monospace;
 }
 
 .shapes svg {
@@ -1173,17 +1185,20 @@ details[open] p {
   transform: translate(-50%, -50%);
 }
 
-.register-sunflower {
+.register-sunflower,
+.login-sunflower {
   left: 17vw;
   transform: rotate(20deg);
 }
 
-.register-diamond {
+.register-diamond,
+.login-diamond {
   bottom: 14vh;
   right: 16vw;
 }
 
-.register-moon {
+.register-moon,
+.login-moon {
   top: 23vh;
   right: 19vw;
 }

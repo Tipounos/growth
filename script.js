@@ -1,3 +1,6 @@
+import { auth } from "./firebase";
+import { onAuthStateChanged } from "firebase/auth";
+
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Menu mobile
@@ -184,3 +187,17 @@ if (!reduceMotion) {
   reveal('details', 'up', true);
   reveal('.foot-grid > *', 'up', true);
 }
+
+
+// Navbar connection or account CTAs depending on wether or not the user is logged in
+
+const navbarActionsEl = document.querySelector(".bar-actions")
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("Logged in", user.email)
+    navbarActionsEl.classList.add("logged-in")
+  } else {
+    console.log("the user isnt logged in")
+  }
+})
