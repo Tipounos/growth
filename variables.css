@@ -1,0 +1,40 @@
+:root {
+  /* Palette */
+  --bg: #0d1621;
+  --text: hsl(0, 0%, 85%);
+  --hero-bg: linear-gradient(-185deg, #1a1b38, #0d1f29);
+
+  --electric-sapphire: rgb(255, 157, 46); /* accents dans le texte */
+  --brown-red: #6572ffff; /* boutons CTA */
+  --pale-amber: #dddf70ff; /* abonnement 1 (le moins cher) */
+  --turquoise: #3bdac2ff; /* abonnement 2 */
+  --amethyst: #995db1ff; /* abonnement 3 (le plus cher) */
+
+  --success: #00b30c;
+  --fail: #c9001e;
+
+  /* Dérivées */
+  --muted: hsl(0, 0%, 62%);
+  --card: hsl(0, 0%, 7%);
+  --border: hsl(0 0% 100% / 0.1);
+  --grid: color-mix(in srgb, var(--electric-sapphire) 16%, transparent);
+
+  /* Typo & mise en page */
+  --font: "Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 16px;
+  --max: 1120px;
+  --section-gap: clamp(3.5rem, 8vw, 6.5rem);
+  --margin: 4rem;
+}
+
+@font-face {
+  font-family: 'Nippo';
+  src: url(assets/fonts/Nippo-Variable.woff2),
+       url(assets/fonts/Nippo-Variable.woff2);
+}
+
+@font-face {
+  font-family: 'Chillax';
+  src: url(assets/fonts/Chillax-Variable.woff2),
+       url(assets/fonts/Chillax-Variable.woff);
+}
