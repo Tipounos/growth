@@ -13,6 +13,7 @@ export default defineConfig({
       input: {
         index: resolve(root, "index.html"),
         register: resolve(root, "register.html"),
+        login: resolve(root, "login.html"),
       },
     },
   },
